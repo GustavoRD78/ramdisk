@@ -1,0 +1,12 @@
+on post-fs-data
+    # Permissions for AKM8963 sensor
+    chown system system /data/misc/akm_set.txt
+
+service display_cc /system/bin/display_color_calib
+    class main
+    oneshot
+    disabled
+
+on boot
+    # Enable Wi-Fi EAP SIM
+    setprop ro.wifi.eap_sim_enabled true
